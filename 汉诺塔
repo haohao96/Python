@@ -1,0 +1,18 @@
+count=0
+def hano(n,src,dst,mid):
+	global count
+	if n==1:
+		print('{}:{}->{}'.format(1,src,dst))
+		count+=1
+	else:
+		hano(n-1,src,mid,dst) #先把n-1个从a挪到b 作为过渡 然后a剩下一个可以直接挪到c
+		
+		print('{}:{}->{}'.format(n,src,dst))
+		count+=1
+		hano(n-1,mid,dst,src) #把n-1从b过渡挪到c 此时a就作为过渡了
+	
+def main():
+	hano(3,'a','c','b')
+	print(count)
+
+main()
